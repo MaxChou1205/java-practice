@@ -1,3 +1,7 @@
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 class MyPrint implements Runnable {
     private final int times;
     private final String content;
@@ -33,13 +37,21 @@ public class Main {
 //            System.out.println("a");
 //        }
 
-        // multiple thread
-        Thread thread1 = new Thread(new MyPrint(50));
-        Thread thread2 = new Thread(new MyPrint(20, "aa"));
-        Thread thread3 = new Thread(new MyPrint(50));
+//        multiple thread
+//        Thread thread1 = new Thread(new MyPrint(50));
+//        Thread thread2 = new Thread(new MyPrint(20, "aa"));
+//        Thread thread3 = new Thread(new MyPrint(50));
+//
+//        thread1.start();
+//        thread2.start();
+//        thread3.start();
 
-        thread1.start();
-        thread2.start();
-        thread3.start();
+//        with thread pool
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        executorService.execute(new MyPrint(50));
+        executorService.execute(new MyPrint(20, "aa"));
+        executorService.execute(new MyPrint(50));
+
+        executorService.shutdown();
     }
 }
