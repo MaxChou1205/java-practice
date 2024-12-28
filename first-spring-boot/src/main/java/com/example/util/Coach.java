@@ -1,4 +1,4 @@
-package com.example.first_spring_boot;
+package com.example.util;
 
 public interface Coach {
   String getDailyWorkout();

@@ -1,6 +1,9 @@
-package com.example.first_spring_boot;
+package com.example.first_spring_boot.controller;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.util.Coach;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
